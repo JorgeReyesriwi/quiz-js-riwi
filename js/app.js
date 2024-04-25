@@ -193,7 +193,7 @@ let flag3 = true
 while (day <= daysInMacondo && flag3) {
   console.log(`Dia ${day} en Macondo`)
 
-  const dressCode = prompt(`Hilde, hoy tu dia ${day} que vestimenta usaras \n'amarillo'\n'verde'\n'azul'\n'roja'`).toLowerCase()
+  const dressCode = prompt(`Hilde, hoy tu dia ${day} que vestimenta usaras \n'amarillo'\n'verde'\n'azul'\n'rojo'`).toLowerCase()
 
   switch(dressCode) {
     case 'amarillo':
@@ -220,7 +220,6 @@ while (day <= daysInMacondo && flag3) {
       if (beachDecision) {
         console.log("Tienes tres opciones en la playa:\n1. Jugar voleibol\n2. Nadar en el mar y montar moto acuatica\n3. Tomar cocteles mientras descansas");
         const beachOption = parseInt(prompt("Tienes tres opciones en la playa:\n1. Jugar voleibol\n2. Nadar en el mar y montar moto acuatica\n3. Tomar cocteles mientras descansas\nElige una opciones"));
-      while (beachOption === Number) {
         switch (beachOption) {
           case 1:
             console.log("Juegas voleibol y la pasas genial.")
@@ -236,7 +235,6 @@ while (day <= daysInMacondo && flag3) {
             console.log("Opcion no valida.")
             continue
           }
-        }
       } else {
         console.log("Decidiste no participar en actividades en la playa. No pasa nada.")
       }
