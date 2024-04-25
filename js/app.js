@@ -10,7 +10,7 @@ console.log("Joa, no he comido y tengo como hambre, sera que como algo aqui o me
 let flag = true
 while (flag) {
 
-  const decition = parseInt(prompt("Ingrese que quiere hacer Hilde \n 1: comer una almojabana con gaseosa \n2: comer un subway con gaseosa \n 3: no comer hasta llegar a medellin"))
+  const decition = parseInt(prompt("Ingrese que quiere hacer Hilde\n1: comer una almojabana con gaseosa\n2: comer un subway con gaseosa\n3: no comer hasta llegar a medellin"))
 
   if(!isNaN(decition)) {
 
