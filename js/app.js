@@ -46,69 +46,92 @@ while (flag) {
 }
 
 // Case 2
-
+const suitcaseAlert = alert("Hilde, tu maleta no cumple con los requisitos minimos para poder viajar, vamos a sacar ropa de ella para que cumpla las medidas minimas")
 function calculateNewDimention() {
-  const maxLength = 40;
-  const maxWidth = 20;
-  const maxlHeight = 55;
+  const maxLength = 40
+  const maxWidth = 20
+  const maxHeight = 55
+  console.log(`Las medidas minimas son \naltura: ${maxHeight}\nancho: ${maxWidth}\nlargo: ${maxLength}`)
+  const actualLength = 40
+  const actualWidth = 20
+  const actualHeight = 60
+  console.log(`Las medidas actuales de tu maleta son \naltura: ${actualHeight}\nancho: ${actualWidth}\nlargo: ${actualLength}`)
 
-  const actualLength = 40;
-  const actualWidth = 20;
-  const actualHeight = 60;
-
-  const reductionHeight = maxlHeight / actualHeight;
-  const reductionWidth = maxWidth / actualWidth;
-  const reductionLength = maxLength / actualLength;
+  const reductionHeight = maxHeight / actualHeight
+  const reductionWidth = maxWidth / actualWidth
+  const reductionLength = maxLength / actualLength
 
   const factorReduction = Math.min(reductionHeight, reductionLength, reductionWidth);
 
-  const newLength = actualLength * factorReduction;
-  const newWidth = actualWidth * factorReduction;
-  const newHeight = actualHeight * factorReduction;
+  const newLength = actualLength * factorReduction
+  const newWidth = actualWidth * factorReduction
+  const newHeight = actualHeight * factorReduction
 
-  const newDimentionSuitcase = `nueva altura: ${newHeight} \nnuevo ancho: ${newWidth} \nnuevo largo: ${newLength}`;
-  console.log(newDimentionSuitcase);
+  const newDimentionSuitcase = `Ya optimizamos el espacio en la maleta para que cumpla los requisitos del viaje\nnueva altura: ${newHeight}\nnuevo ancho: ${newWidth}\nnuevo largo: ${newLength}`
+  console.log(newDimentionSuitcase)
 }
 
-calculateNewDimention();
+calculateNewDimention()
 
 // Case 3
 function binaryConverterLetter(binary) {
+  
+
   const decimalNum = parseInt(binary, 2)
 
   const letter = String.fromCharCode(decimalNum)
   return letter
 }
 
-const elPassEs = "01110010_01101001_01110111_01101001"
+const hildeFood = confirm("Comiste antes de subir al avion?")
+if(hildeFood === false) {
+  console.log("Debes comer algo antes de irte para Macondo, son las 2AM y solo hay comida cara de aeropuerto")
+  const hildeEat = confirm("Lo bueno es que hay mucha comida, lo malo es que es cara, cualquier cosa que compres costara $100.000 ¿Quieres comer?")
+  if(hildeEat === true) {
+    money = money - 100000
+    console.log(`Hilde comio y quedo lleno, actualmente le quedan ${money}`)
+  } else {
+    console.log(`Hilde no comio, tiene mucha hambre pero le quedan ${money} para su viaje en Macondo`)
+  }
+} else {
+  console.log("Hilde ya habia comido")
+}
 
+console.log("Estando en el aeropuerto Hilde se da cuenta que el wifi del aeropuerto esta fallando y debe confirmar su reserva en el hotel, despues de un rato caminando encuentra una red wifi disponible, pero tiene su contraseña encriptada con numeros binarios, debe descifrarla para poder confirmar su reserva")
+
+const elPassEs = "01110010_01101001_01110111_01101001"
 const arrayPass = elPassEs.split("_")
 
 const firstWord = binaryConverterLetter(arrayPass[0])
-
-const secondWord = binaryConverterLetter(arrayPass[1]);
-
-const thirdWord = binaryConverterLetter(arrayPass[2]);
-
-const fourthWord = binaryConverterLetter(arrayPass[3]);
-
+const secondWord = binaryConverterLetter(arrayPass[1])
+const thirdWord = binaryConverterLetter(arrayPass[2])
+const fourthWord = binaryConverterLetter(arrayPass[3])
 const password = firstWord + secondWord + thirdWord + fourthWord
 
-console.log(password)
+let flag4 = true
 
-const enterPassword = prompt("Ingrese la contraseña que sale en consola:")
+while (flag4) {
+  console.log("Ya descifro la contraseña, ahora ingresa lo que sale en consola para acceder a la red y hacer la reserva")
+  console.log("La contraseña es: " + password)
+  const enterPassword = prompt("Ingrese aqui la contraseña que sale en consola:")
 
-if (enterPassword === password) {
-  console.log("ingreso correctamente la contraseña, la hora de uso son 50.000")
-  const hourPaying = parseInt(prompt("Ingrese el numero de horas que desea usar el wifi, recuerda que la hora vale 50.000"))
+  if (enterPassword === password) {
+    console.log("ingreso correctamente la contraseña, la hora de uso son 50.000")
+    const hourPaying = parseInt(prompt("Ingrese el numero de horas que desea usar el wifi, recuerda que la hora vale 50.000"))
 
-  if (hourPaying > 0) {
-    const costWifi = hourPaying * 50000
-    money = money - costWifi
-    console.log(`Despues de pagar la contraseña te quedan ${money}`)
-  }
-} else {
-  console.log("Ingrese un numero")
+      if (hourPaying > 0) {
+        const costWifi = hourPaying * 50000
+        money = money - costWifi
+        console.log(`Despues de pagar la contraseña te quedan ${money}`)
+        flag4 = false
+      } else {
+        console.log("No ingresaste una hora valida")
+        continue
+      }
+    } else {
+      console.log("Ingrese un numero")
+      continue
+    }
 }
 
 // Case 4
@@ -117,12 +140,15 @@ function replaceVowel(str) {
   return str.replace(/[aeiou]/gi, "i")
 }
 
+console.log("Hilde llega a Macondo y agarra un taxi para ir al hotel, pero se da cuenta que todos en Macondo hablan cambiando las vocales por la 'i' entonces decide hacer un traductor para poder comunicarse con el taxista")
+console.log("Despues de tener el traductor le pregunta al taxista...\n\n")
 const takeATaxi = "Taxi me puede llevar al hotel mariposas amarillas"
 const translatedSentence = replaceVowel(takeATaxi)
 console.log(translatedSentence)
 
 // Case 5
 
+console.log("Despues de que el taxista llega al hotel le dice a Hilde que son 300.000, Hilde al no estar de acuerdo con el taxista le dice que jueguen piedra, papel o tijeras para ver si le paga o no, el conductor acepta y juegan a una sola ronda")
 let flag2 = true
 
 while (flag2) {
@@ -182,7 +208,7 @@ while (day <= daysInMacondo && flag3) {
     case 'verde':
       const decisionCaminata = confirm("Hilde ¿Quieres hacer una caminata?")
       if (decisionCaminata) {
-          console.log("Como quisite hacer la caminata y llegas a una hermosa cascada donde te tomas fotos.")
+          console.log("Como fuiste a la caminata y llegas a una hermosa cascada donde te tomas fotos.")
       } else {
           console.log("Como no querias hacer la caminata. Te devuelves solo y de noche, te pierdes.")
           flag3 = false
@@ -194,7 +220,7 @@ while (day <= daysInMacondo && flag3) {
       if (beachDecision) {
         console.log("Tienes tres opciones en la playa:\n1. Jugar voleibol\n2. Nadar en el mar y montar moto acuatica\n3. Tomar cocteles mientras descansas");
         const beachOption = parseInt(prompt("Tienes tres opciones en la playa:\n1. Jugar voleibol\n2. Nadar en el mar y montar moto acuatica\n3. Tomar cocteles mientras descansas\nElige una opciones"));
-
+      while (beachOption === Number) {
         switch (beachOption) {
           case 1:
             console.log("Juegas voleibol y la pasas genial.")
@@ -208,6 +234,8 @@ while (day <= daysInMacondo && flag3) {
             break
           default:
             console.log("Opcion no valida.")
+            continue
+          }
         }
       } else {
         console.log("Decidiste no participar en actividades en la playa. No pasa nada.")
